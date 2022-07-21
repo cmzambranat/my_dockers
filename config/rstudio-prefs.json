@@ -1,0 +1,48 @@
+{
+    "panes": {
+        "quadrants": [
+            "Source",
+            "TabSet1",
+            "Console",
+            "TabSet2"
+        ],
+        "tabSet1": [
+            "Environment",
+            "History",
+            "Connections",
+            "Build",
+            "VCS",
+            "Tutorial",
+            "Presentation"
+        ],
+        "tabSet2": [
+            "Files",
+            "Plots",
+            "Packages",
+            "Help",
+            "Viewer"
+        ],
+        "console_left_on_top": false,
+        "console_right_on_top": true
+    },
+    "show_margin": false,
+    "syntax_color_console": true,
+    "font_size_points": 13,
+    "editor_theme": "Pastel On Dark",
+    "default_project_location": "~/repos",
+    "source_with_echo": true,
+    "document_author": "Carlos Zambrana-Torrelio",
+    "wrap_tab_navigation": false,
+    "save_workspace": "always",
+    "reuse_sessions_for_project_links": true,
+    "posix_terminal_shell": "bash",
+    "jobs_tab_visibility": "shown",
+    "initial_working_directory": "~",
+    "rainbow_parentheses": true,
+    "default_encoding": "UTF-8",
+    "editor_keybindings": "sublime",
+    "default_sweave_engine": "knitr",
+    "pdf_previewer": "system",
+    "server_editor_font_enabled": true,
+    "server_editor_font": "Andale Mono"
+}
