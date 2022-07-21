@@ -1,10 +1,10 @@
-name: Docker Image CI
+name: Docker Image CI Phylo
 
 on:
   push:
-    branches: [ "phylo" ]
-  pull_request:
-    branches: [ "phylo" ]
+  workflow_dispatch:
+    branches:
+      - '*'
 
 jobs:
 
