@@ -1,4 +1,4 @@
-Name: Custom Rockers Images
+name: Custom Rockers Images
 
 on:
   push:
