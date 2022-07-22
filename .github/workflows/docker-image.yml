@@ -1,10 +1,11 @@
-name: Docker Image CI Phylo
+name: Custom Rockers Images
 
 on:
   push:
   workflow_dispatch:
     branches:
       - '*'
+      - '!main'
 
 jobs:
 
@@ -14,5 +15,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: docker login
+    - env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: 
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag phylo:$(date +%s)
+    - name: Docker push
+      run: docker push ${{secrets.DOCKER_USER}}/phylo
