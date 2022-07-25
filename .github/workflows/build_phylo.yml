@@ -32,4 +32,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: cmzambranat/phylo:4.20
+          tags: cmzambranat/spatial:4.2.1
