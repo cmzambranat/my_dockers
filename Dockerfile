@@ -51,7 +51,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   ggrepel \
   ggforce \
   ggmap \
-  ggpatern \
+  ggpattern \
   ggpmisc \
   ggspatial \
   ggthemes \
