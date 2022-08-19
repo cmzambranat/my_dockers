@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
     libsecret-1-dev \
     htop \
     wget \
-  && RSTUDIO_URL="https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.07.1-554-amd64.deb" \
+  && RSTUDIO_URL="https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64/rstudio-server-2022.07.1-554-amd64.deb" \              
   && wget -q $RSTUDIO_URL \
   && dpkg -i rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb \
@@ -88,4 +88,4 @@ RUN echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
   && rm /usr/local/lib/R/etc/Makevars.site \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages \
   && R -e "update.packages(ask = FALSE)" 
-COPY --chown=rstudio rstudio-prefs.json /home/rstudio/.config/rstudio/rstudio-prefs.json
+COPY --chown=rstudio /config/rstudio-prefs.json /home/rstudio/.config/rstudio/rstudio-prefs.json
