@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
     grass-doc \
     htop \
     wget \
-  && RSTUDIO_URL="https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.07.0-548-amd64.deb" \
+  && RSTUDIO_URL="https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.07.1-554-amd64.deb" \
   && wget -q $RSTUDIO_URL \
   && dpkg -i rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb \
@@ -50,14 +50,16 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   #gdalUtils \
   ggrepel \
   ggforce \
-  gtsummary \
   ggmap \
+  ggpatern \
   ggpmisc \
   ggspatial \
   ggthemes \
   ggtext \
+  ggsci \
   googledrive \
   googleway \
+  gtsummary \
   janitor \
   knitcitations \
   landscapemetrics \
@@ -68,6 +70,8 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   lulcc \
   mapmisc \
   mapview \
+  mapboxapi \
+  MetBrewer \
   mobr \
   #mobsim \
   #NetLogoR \
@@ -78,6 +82,8 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   projects \
   rangeBuilder \
   rasterVis \
+  rcartocolor \
+  rmapshaper \
   RNCEP \
   rgrass \
   rnaturalearth \
@@ -85,6 +91,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   red \
   renv \
   ROI \
+  scico \
   stars \
   styler \
   targets \
