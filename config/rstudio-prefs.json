@@ -43,6 +43,7 @@
     "editor_keybindings": "sublime",
     "default_sweave_engine": "knitr",
     "pdf_previewer": "system",
+    "soft_wrap_r_files": true,
     "server_editor_font_enabled": true,
     "server_editor_font": "Andale Mono"
 }
