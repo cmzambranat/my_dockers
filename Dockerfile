@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
     grass-doc \
     htop \
     wget \
-  && RSTUDIO_URL="https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.07.1-554-amd64.deb" \
+  && RSTUDIO_URL="https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64/rstudio-server-2022.07.1-554-amd64.deb" \
   && wget -q $RSTUDIO_URL \
   && dpkg -i rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb \
@@ -92,6 +92,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   renv \
   ROI \
   scico \
+  sfdep \
   stars \
   styler \
   targets \
@@ -101,6 +102,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   tidync \
   tmap \
   vroom \
+  waywiser \
   zip \
   && installGithub.r macroecology/letsR \
   && installGithub.r azvoleff/gfcanalysis \
