@@ -3,11 +3,8 @@ MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
 ## Core spatial
 ## R config and packages
-RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
-  &&  echo "CXXFLAGS=-w"  >> /usr/local/lib/R/etc/Makevars.site \
-  &&  echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
-## Compile R packages
-  && install2.r --error --skipinstalled \
+RUN ## Compile R packages
+  install2.r --error --skipinstalled \
   ecmwfr \
   fasterize \
   fs \
