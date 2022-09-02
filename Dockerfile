@@ -3,8 +3,8 @@ MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
 ## Core spatial
 ## R config and packages
-RUN ## Compile R packages
-  install2.r --error --skipinstalled \
+## Compile R packages
+RUN install2.r --error --skipinstalled \
   ecmwfr \
   fasterize \
   fs \
