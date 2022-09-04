@@ -42,11 +42,5 @@ RUN install2.r --error --skipinstalled --ncpus -1 \
     tmap \
     waywiser \
     zip \
-    && installGithub.r macroecology/letsR \
-    && installGithub.r azvoleff/gfcanalysis \
-    && rm -rf /tmp/downloaded_packages \
-    && strip /usr/local/lib/R/site-library/*/libs/*.so
-RUN echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
-    && Rscript -e "install.packages('INLA', repos=c(getOption('repos'), INLA = 'https://inla.r-inla-download.org/R/testing'), dep = TRUE, Ncpus = parallel::detectCores())" \
     && rm -rf /tmp/downloaded_packages \
     && strip /usr/local/lib/R/site-library/*/libs/*.so
