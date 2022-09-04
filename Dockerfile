@@ -4,7 +4,8 @@ MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Core spatial
 ## R config and packages
 ## Compile R packages
-RUN install2.r --error --skipinstalled --ncpus -1 \
+RUN installGithub.r -d s-u/unixtools \
+    install2.r --error --skipinstalled --ncpus -1 \
     ecmwfr \
     && rm -rf /tmp/downloaded_packages \
     && strip /usr/local/lib/R/site-library/*/libs/*.so
