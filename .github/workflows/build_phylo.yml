@@ -32,4 +32,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: cmzambranat/spatial:4.2.1
+          tags: cmzambranat/ml-sebitas:4.2.1
