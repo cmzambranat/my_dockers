@@ -18,8 +18,7 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
   && rm rstudio-server-*-amd64.deb \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/
-RUN python3 -m pip install keras-bert \
-    python3 -m pip install tensorflow
+RUN python3 -m pip install keras-bert tensorflow
 ## R config and packages
 RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   &&  echo "CXXFLAGS=-w"  >> /usr/local/lib/R/etc/Makevars.site \
