@@ -1,7 +1,7 @@
 FROM rocker/ml-verse:4.2.1
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
-RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
+RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated --no-install-recommends \
     openssh-server \
     python3-pip \
     python3.9 \
