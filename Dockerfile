@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
     libsecret-1-dev \
     htop \
     wget \
-  && RSTUDIO_URL="https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64/rstudio-server-2022.07.1-554-amd64.deb" \              
+  && RSTUDIO_URL="https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64/rstudio-server-2022.07.2-576-amd64.deb" \
   && wget -q $RSTUDIO_URL \
   && dpkg -i rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb \
@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
 RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   &&  echo "CXXFLAGS=-w"  >> /usr/local/lib/R/etc/Makevars.site \
   &&  echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
-## install from github 
+## install from github
   && installGithub.r -d s-u/unixtools \
 ## Compile R packages
   && install2.r --error --skipinstalled \
@@ -67,6 +67,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   stacks \
   stopwords \
   styler \
+  text \
   textclean \
   textmineR \
   textrank \
@@ -79,6 +80,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   tm \
   topicmodels \
   tokenizers \
+  udpipe \
   vip \
   wordcloud \
   workflowsets \
@@ -87,5 +89,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
 RUN echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
   && rm /usr/local/lib/R/etc/Makevars.site \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages \
-  && R -e "update.packages(ask = FALSE)" 
+  && R -e "update.packages(ask = FALSE)"
+  && R -e "text::textrpp_install()"
+  && R -e "text::textrpp_initialize(save_profile = TRUE)"
 COPY --chown=rstudio /config/rstudio-prefs.json /home/rstudio/.config/rstudio/rstudio-prefs.json
