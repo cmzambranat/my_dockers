@@ -85,6 +85,25 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   wordcloud \
   workflowsets \
   xgboost \
+  # Workshop additional packages
+  hexView \
+  DiagrammeR \
+  igraph \
+  ggraph \
+  incidentally \
+  widyr \
+  XML \
+  tidylda \
+  quanteda \
+  janeaustenr \
+  aRxiv \
+  NLP \
+  openNLP \
+  openNLPdata \
+  sotu \
+  corporaexplorer \
+  humaniformat \
+  && installGithub.r ropensci/gutenbergr \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages
 RUN echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
   && rm /usr/local/lib/R/etc/Makevars.site \
