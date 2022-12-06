@@ -88,6 +88,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   xgboost \
   #
   hexView \
+  DT \
   DiagrammeR \
   igraph \
   ggraph \
