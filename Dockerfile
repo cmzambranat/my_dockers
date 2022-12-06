@@ -1,10 +1,11 @@
-FROM rocker/verse:4.2.2
+FROM rocker/verse:4.2.1
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
 RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated --no-install-recommends --no-upgrade \
     openssh-server \
     python3.8 \
     python3.8-dev \
+    python3-pip \
     curl \
     libarchive-dev \
     libcairo2-dev \
