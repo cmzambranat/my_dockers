@@ -47,6 +47,8 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   ggthemes \
   ggtext \
   googleway \
+  googledrive \
+  googlesheets4 \
   here \
   huxtable \
   janitor \
@@ -56,6 +58,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   lemon \
   naivebayes \
   officer \
+  openxlsx \
   pacman \
   parallel \
   parsnip \
@@ -63,6 +66,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   pbapply \
   piggyback \
   ranger \
+  reticulate \
   scales \
   SnowballC \
   stacks \
@@ -78,6 +82,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   tidylog \
   tidytext \
   tidymodels \
+  tidyxl \
   tm \
   topicmodels \
   tokenizers \
