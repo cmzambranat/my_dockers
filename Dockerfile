@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
   && wget -q $RSTUDIO_URL \
   && dpkg -i rstudio-server-*-amd64.deb \
   && rm rstudio-server-*-amd64.deb \
+  && wget https://downloads.vivaldi.com/stable/vivaldi-stable_5.6.2867.58-1_amd64.deb \
+  && dpkg -i vivaldi-stable_5.6.2867.58-1_amd64.deb \  
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/
 ## R config and packages
@@ -42,6 +44,8 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   ggforce \
   gt \
   gtsummary \
+  glue \
+  gtExtras \
   ggmap \
   ggpmisc \
   ggthemes \
@@ -88,6 +92,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   tokenizers \
   udpipe \
   vip \
+  webshot2 \
   wordcloud \
   workflowsets \
   xgboost \
@@ -115,5 +120,6 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
 RUN echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
   && rm /usr/local/lib/R/etc/Makevars.site \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages \
-  && R -e "update.packages(ask = FALSE)"
+  && R -e "update.packages(ask = FALSE)" \
+  && RUN echo CHROMOTE_CHROME=/usr/bin/vivaldi >> .Renviron
 COPY --chown=rstudio /config/rstudio-prefs.json /home/rstudio/.config/rstudio/rstudio-prefs.json
