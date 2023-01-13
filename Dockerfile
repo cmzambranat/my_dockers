@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
   && rm rstudio-server-*-amd64.deb \
   && VIVALDI_URL="https://downloads.vivaldi.com/stable/vivaldi-stable_5.6.2867.58-1_amd64.deb" \
   && wget -q $VIVALDI_URL \
-  && dpkg -i vivaldi-stable-*-amd64.deb \  
+  && dpkg -i vivaldi-stable_*_amd64.deb \  
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/
 ## R config and packages
