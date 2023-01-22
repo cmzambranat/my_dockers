@@ -10,10 +10,6 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
     libsecret-1-dev \
     htop \
     wget \
-  && RSTUDIO_URL="https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.07.2-576-amd64.deb" \
-  && wget -q $RSTUDIO_URL \
-  && dpkg -i rstudio-server-*-amd64.deb \
-  && rm rstudio-server-*-amd64.deb \
   && wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
   && apt-get install -y ./google-chrome-stable_current_amd64.deb \
   && rm google-chrome-stable_current_amd64.deb \
