@@ -71,6 +71,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   stacks \
   stopwords \
   styler \
+  targets \
   text \
   textclean \
   textmineR \
