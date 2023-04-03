@@ -113,7 +113,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   corporaexplorer \
   humaniformat \
   && installGithub.r ropensci/gutenbergr \
-  && installGithub.r elipousson/officerExtras
+  && installGithub.r elipousson/officerExtras \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages
 RUN echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
   && rm /usr/local/lib/R/etc/Makevars.site \
