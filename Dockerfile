@@ -1,4 +1,4 @@
-FROM rocker/verse:4.2.2
+FROM rocker/verse:4.2.3
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
 RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated --no-install-recommends --no-upgrade \
@@ -100,6 +100,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   ggraph \
   incidentally \
   widyr \
+  writexl \
   XML \
   tidylda \
   quanteda \
@@ -112,6 +113,7 @@ RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
   corporaexplorer \
   humaniformat \
   && installGithub.r ropensci/gutenbergr \
+  && installGithub.r elipousson/officerExtras
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages
 RUN echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
   && rm /usr/local/lib/R/etc/Makevars.site \
