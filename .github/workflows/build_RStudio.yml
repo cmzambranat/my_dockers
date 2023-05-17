@@ -32,4 +32,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: cmzambranat/nlp:4.2.3
+          tags: cmzambranat/nlp:4.3.0
