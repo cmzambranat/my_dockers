@@ -2,23 +2,47 @@ FROM rocker/geospatial:4.3.1
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
 ## Core spatial
-RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated --no-install-recommends --no-upgrade \
-    curl \
-    htop \
-    wget \
-    openssh-server \
-    python3.9 \
-    python3.9-dev \
-    libarchive-dev \
-    libcairo2-dev \
-    libgdal-dev \
-    libproj-dev \
-    libgeos++-dev \
-    libsecret-1-dev \
-    libudunits2-dev \
-    grass \
-    grass-dev \
-    grass-doc \
+RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated --no-install-recommends --no-upgrade --add-apt-repository ppa:ubuntugis/ubuntugis-unstable\
+  curl \
+  gdal-bin \
+  grass \
+  grass-dev \
+  grass-doc \
+  htop \
+  libarchive-dev \
+  libcairo2-dev \
+  libgdal-dev \
+  libgeos-dev \
+  libproj-dev \
+  libsecret-1-dev \
+  libudunits2-dev \
+  openssh-server \
+  proj-data \
+  proj-bin \
+  python3-gdal \
+  unzip \
+  wget \
+  build-essential \
+  flex make bison gcc libgcc1 g++ ccache \
+  python3 python3-dev \
+  python3-opengl python3-wxgtk4.0 \
+  python3-dateutil libgsl-dev python3-numpy \
+  wx3.0-headers wx-common libwxgtk3.0-gtk3-dev \
+  libwxbase3.0-dev   \
+  libncurses5-dev \
+  libbz2-dev \
+  zlib1g-dev gettext \
+  libtiff5-dev libpnglite-dev \
+  libcairo2 libcairo2-dev \
+  sqlite3 libsqlite3-dev \
+  libpq-dev \
+  libreadline6-dev libfreetype6-dev \
+  libfftw3-3 libfftw3-dev \
+  libboost-thread-dev libboost-program-options-dev  libpdal-dev\
+  subversion libzstd-dev \
+  checkinstall \
+  libglu1-mesa-dev libxmu-dev \
+  ghostscript wget \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/
 ## R config and packages
