@@ -1,4 +1,4 @@
-FROM rocker/geospatial:4.2.1
+FROM rocker/geospatial:4.3.1
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
 ## Core spatial
@@ -19,10 +19,10 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essen
     grass \
     grass-dev \
     grass-doc \
-  && RSTUDIO_URL="https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64/rstudio-server-2022.07.1-554-amd64.deb" \
-  && wget -q $RSTUDIO_URL \
-  && dpkg -i rstudio-server-*-amd64.deb \
-  && rm rstudio-server-*-amd64.deb \
+  ##&& RSTUDIO_URL="https://s3.amazonaws.com/rstudio-ide-build/server/bionic/amd64/rstudio-server-2022.07.1-554-amd64.deb" \
+  ##&& wget -q $RSTUDIO_URL \
+  ##&& dpkg -i rstudio-server-*-amd64.deb \
+  ##&& rm rstudio-server-*-amd64.deb \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/
 ## R config and packages
