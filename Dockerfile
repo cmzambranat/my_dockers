@@ -2,7 +2,8 @@ FROM rocker/geospatial:4.3.1
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
 ## Core spatial
-RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated --no-install-recommends --no-upgrade --add-apt-repository ppa:ubuntugis/ubuntugis-unstable\
+RUN apt-get update && apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated --no-install-recommends --no-upgrade \
+add-apt-repository ppa:ubuntugis/ubuntugis-unstable \
   curl \
   gdal-bin \
   grass \
