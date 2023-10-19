@@ -1,4 +1,4 @@
-FROM cmzambranat/corespatial:4.2.1
+FROM cmzambranat/corespatial:4.3.1
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
 ## Core spatial
