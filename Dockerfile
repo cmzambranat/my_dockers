@@ -1,4 +1,4 @@
-FROM cmzambranat/corespatial:4.3.2
+FROM cmzambranat/corespatial:4.3.2-81
 LABEL maintainer="Carlos Zambrana-Torrelio <cmzambranat@gmail.com>"
 
 # R configuration, package installation, and cleanup
