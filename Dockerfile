@@ -1,59 +1,21 @@
-FROM cmzambranat/corespatial:4.3.1
-MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
-## Installs to help install
-## Core spatial
-## R config and packages
-## Compile R packages
-RUN echo "CFLAGS=-w" >> /usr/local/lib/R/etc/Makevars.site \
-    &&  echo "CXXFLAGS=-w"  >> /usr/local/lib/R/etc/Makevars.site \
-    &&  echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
-## install from github
+FROM cmzambranat/corespatial:4.3.2
+LABEL maintainer="Carlos Zambrana-Torrelio <cmzambranat@gmail.com>"
+
+# R configuration, package installation, and cleanup
+RUN echo "CFLAGS=-w\nCXXFLAGS=-w\nMAKEFLAGS=-j$(nproc)" > /usr/local/lib/R/etc/Makevars.site \
     && installGithub.r -d s-u/unixtools \
-## Compile R packages
-    && install2.r --error --skipinstalled \
-    ecmwfr \
-    fasterize \
-    fs \
-    geofacet \
-    ggmap \
-    ggpattern \
-    ggsci \
-    ggspatial \
-    googleway \
-    landscapemetrics \
-    leaflet \
-    leafpop \
-    lulcc \
-    mapmisc \
-    mapview \
-    MetBrewer \
-    pdp \
-    prioritizr \
-    projects \
-    randomForestExplainer \
-    rangeBuilder \
-    rasterVis \
-    rcartocolor \
-    rgrass \
-    rmapshaper \
-    rnaturalearth \
-    rnaturalearthdata \
-    RNCEP \
-    scico \
-    sfdep \
-    spatialRF \
-    stars \
-    terra \
-    tidync \
-    tmap \
-    waywiser \
-    zip \
+    && install2.r --error --skipinstalled ecmwfr fasterize fs geofacet ggmap ggpattern ggsci \
+    ggspatial googleway landscapemetrics leaflet leafpop lulcc mapmisc mapview MetBrewer pdp \
+    prioritizr projects randomForestExplainer rangeBuilder rasterVis rcartocolor rgrass rmapshaper \
+    rnaturalearth rnaturalearthdata RNCEP scico sfdep spatialRF stars terra tidync tmap waywiser zip \
+    flexdashboard highcharter treemap \
     && installGithub.r macroecology/letsR \
     && installGithub.r azvoleff/gfcanalysis \
-    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages
-RUN echo "MAKEFLAGS=-j$(nproc)"  >> /usr/local/lib/R/etc/Makevars.site \
     && Rscript -e "install.packages('INLA', repos=c(getOption('repos'), INLA = 'https://inla.r-inla-download.org/R/testing'), dep = TRUE, Ncpus = parallel::detectCores())" \
-    && rm /usr/local/lib/R/etc/Makevars.site \
-    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages \
-    && R -e "update.packages(ask = FALSE)" \
-    COPY --chown=rstudio /config/rstudio-prefs.json /home/rstudio/.config/rstudio/rstudio-prefs.json
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages /usr/local/lib/R/etc/Makevars.site
+
+# Update R packages
+RUN R -e "update.packages(ask = FALSE)"
+
+# Copy configuration file
+COPY --chown=rstudio /config/rstudio-prefs.json /home/rstudio/.config/rstudio/rstudio-prefs.json
