@@ -2,12 +2,10 @@ name: Custom Rockers Images Spatial
 
 on:
   push:
-    branches:
-      - '*'
-      - '!main'
-    paths:
-      - 'Dockerfile'
   workflow_dispatch:
+    branches:
+      - 'corespatial'
+      - '!main'
 
 jobs:
   docker:
