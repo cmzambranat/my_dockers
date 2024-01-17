@@ -10,6 +10,9 @@ RUN apt-get update && apt-get install -y \
     libsecret-1-dev \
     htop \
     wget \
+  && wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.545/quarto-1.4.545-linux-amd64.deb \
+  && dpkg -i quarto-1.4.545-linux-amd64.deb \
+  && rm quarto-1.4.545-linux-amd64.deb \
   && wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
   && apt-get install -y ./google-chrome-stable_current_amd64.deb \
   && rm google-chrome-stable_current_amd64.deb \
