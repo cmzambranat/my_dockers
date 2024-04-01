@@ -1,5 +1,4 @@
-name: Custom Rockers Images
-
+name: Custom Rockers Images NLP
 on:
   push:
     branches:
