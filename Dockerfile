@@ -22,7 +22,6 @@ RUN echo "CFLAGS=-w\nCXXFLAGS=-w\nMAKEFLAGS=-j$(nproc)" > /usr/local/lib/R/etc/M
 
 # Install R packages
 RUN install2.r --error --skipinstalled \
-  bookdownplus \
   config \
   countrycode \
   DT \
@@ -39,7 +38,6 @@ RUN install2.r --error --skipinstalled \
   kableExtra \
   lemon \
   linl \
-  mindr \
   pagedown \
   patchwork \
   pinp \
