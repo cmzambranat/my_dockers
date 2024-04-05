@@ -21,7 +21,7 @@ RUN echo "CFLAGS=-w\nCXXFLAGS=-w\nMAKEFLAGS=-j$(nproc)" > /usr/local/lib/R/etc/M
   && installGithub.r -d s-u/unixtools
 
 ## Compile R packages
-  && install2.r --error --skipinstalled --verbose \
+  && install2.r --error --skipinstalled \
   bookdownplus \
   config \
   countrycode \
