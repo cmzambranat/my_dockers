@@ -15,13 +15,13 @@ RUN apt-get update && apt-get install -y \
   && rm google-chrome-stable_current_amd64.deb \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-  
+
 # R configurations
 RUN echo "CFLAGS=-w\nCXXFLAGS=-w\nMAKEFLAGS=-j$(nproc)" > /usr/local/lib/R/etc/Makevars.site \
   && installGithub.r -d s-u/unixtools
 
-## Compile R packages
-  && install2.r --error --skipinstalled \
+# Install R packages
+RUN install2.r --error --skipinstalled \
   bookdownplus \
   config \
   countrycode \
