@@ -1,4 +1,4 @@
-FROM rocker/verse:4.3.3
+FROM rocker/verse:4.4.0
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -10,9 +10,6 @@ RUN apt-get update && apt-get install -y \
     libsecret-1-dev \
     htop \
     wget \
-  && wget https://github.com/quarto-dev/quarto-cli/releases/download/v1.4.545/quarto-1.4.545-linux-amd64.deb \
-  && dpkg -i quarto-1.4.545-linux-amd64.deb \
-  && rm quarto-1.4.545-linux-amd64.deb \
   && wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
   && apt-get install -y ./google-chrome-stable_current_amd64.deb \
   && rm google-chrome-stable_current_amd64.deb \
@@ -25,7 +22,7 @@ RUN echo "CFLAGS=-w\nCXXFLAGS=-w\nMAKEFLAGS=-j$(nproc)" > /usr/local/lib/R/etc/M
 
 # Install R packages
 RUN install2.r --error --skipinstalled \
-    BTM \
+  BTM \
   classInt \
   colorspace \
   cowplot \
