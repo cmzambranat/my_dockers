@@ -31,6 +31,7 @@ RUN install2.r --error --skipinstalled \
   discrim \
   docxtractr \
   doMC \
+  duckplyr \
   flextable \
   formattable \
   fs \
