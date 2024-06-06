@@ -1,4 +1,4 @@
-FROM rocker/verse:4.3.3
+FROM rocker/verse:4.4.0
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
