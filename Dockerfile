@@ -1,4 +1,4 @@
-FROM rocker/verse:4.4.0
+FROM rocker/verse:4.4.1
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -47,6 +47,7 @@ RUN install2.r --error --skipinstalled \
   rticles \
   shinyjs \
   tufte \
+  quarto \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages
 
 # Update R packages
