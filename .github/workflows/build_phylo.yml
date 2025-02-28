@@ -29,7 +29,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: cmzambranat/spatial:4.3.2
+          tags: cmzambranat/spatial:4.4.0
 
       - name: Image digest
         run: echo "The image digest is ${{ steps.docker_build.outputs.digest }}"
