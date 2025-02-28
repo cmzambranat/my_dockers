@@ -1,4 +1,4 @@
-FROM rocker/geospatial:4.3.2
+FROM rocker/geospatial:4.4.3
 LABEL maintainer="Carlos Zambrana-Torrelio <cmzambranat@gmail.com>"
 
 # Install system dependencies
