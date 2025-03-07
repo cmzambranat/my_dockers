@@ -23,7 +23,7 @@ RUN echo "CFLAGS=-w\nCXXFLAGS=-w\nMAKEFLAGS=-j$(nproc)" > /usr/local/lib/R/etc/M
 # Install R packages
 RUN install2.r --error --skipinstalled \
   classInt \
-  && installGithub.r jbryer/ShinyQDA \
+  #&& installGithub.r jbryer/ShinyQDA \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages
 
 # Update R packages
