@@ -1,4 +1,4 @@
-FROM rocker/shiny:4.4.3
+FROM rocker/shiny-verse:4.4.3
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -23,7 +23,7 @@ RUN echo "CFLAGS=-w\nCXXFLAGS=-w\nMAKEFLAGS=-j$(nproc)" > /usr/local/lib/R/etc/M
 # Install R packages
 RUN install2.r --error --skipinstalled \
   classInt \
-  #&& installGithub.r jbryer/ShinyQDA \
+  && installGithub.r jbryer/ShinyQDA \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages
 
 # Update R packages
