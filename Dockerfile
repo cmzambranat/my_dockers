@@ -1,4 +1,5 @@
-FROM rocker/verse:4.2.0
+FROM rocker/verse:4.5.2
+## rocker verse tags here: https://github.com/rocker-org/rocker-versioned2/wiki
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 ## Installs to help install
 # hope it works
