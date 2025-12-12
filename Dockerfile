@@ -1,4 +1,5 @@
-FROM rocker/verse:4.4.1
+FROM rocker/verse:4.5.2
+## rocker verse tags: https://github.com/rocker-org/rocker-versioned2/wiki
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
