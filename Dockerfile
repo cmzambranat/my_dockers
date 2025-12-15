@@ -21,6 +21,22 @@ RUN apt-get update && apt-get install -y \
 RUN echo "CFLAGS=-w\nCXXFLAGS=-w\nMAKEFLAGS=-j$(nproc)" > /usr/local/lib/R/etc/Makevars.site \
   && installGithub.r -d s-u/unixtools
 
+
+
+  # AFTER: Separate RUN commands for each batch
+RUN install2.r --error --skipinstalled BTM classInt colorspace cowplot cshapes countrycode discrim docxtractr doMC duckplyr flextable formattable fs ggrepel ggforce gt gtsummary glue gtExtras ggmap ggpmisc ggthemes ggtext googleway googledrive googlesheets4 \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds # Cleanup for this layer
+
+RUN install2.r --error --skipinstalled here huxtable janitor kableExtra keras kknn lemon naivebayes officer openxlsx pacman parallel parsnip patchwork pbapply piggyback ranger reticulate scales SnowballC stacks stopwords styler \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+
+RUN install2.r --error --skipinstalled targets text textclean textmineR textrank textrecipes themis tictoc tidylog tidytext tidymodels tidyxl tm topicmodels tokenizers udpipe vip webshot2 wordcloud workflowsets xgboost \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+
+# This is the group that likely contains the failing package
+RUN install2.r --error --skipinstalled hexView DT DiagrammeR igraph ggraph incidentally widyr writexl \
+    && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
+
 # Install R packages
 RUN install2.r --error --skipinstalled \
   BTM \
@@ -49,7 +65,8 @@ RUN install2.r --error --skipinstalled \
   googleway \
   googledrive \
   googlesheets4 \
-  && install2.r --error --skipinstalled \
+  && rm -rf /tmp/downloaded_packages/ /tmp/*.rds # Cleanup for this layer 
+RUN install2.r --error --skipinstalled \
   here \
   huxtable \
   janitor \
@@ -73,7 +90,8 @@ RUN install2.r --error --skipinstalled \
   stacks \
   stopwords \
   styler \
-  && install2.r --error --skipinstalled \
+  && rm -rf /tmp/downloaded_packages/ /tmp/*.rds # Cleanup for this layer
+RUN install2.r --error --skipinstalled \
   targets \
   text \
   textclean \
@@ -95,7 +113,8 @@ RUN install2.r --error --skipinstalled \
   wordcloud \
   workflowsets \
   xgboost \
-  && install2.r --error --skipinstalled \
+  && rm -rf /tmp/downloaded_packages/ /tmp/*.rds # Cleanup for this layer
+RUN install2.r --error --skipinstalled \
   hexView \
   DT \
   DiagrammeR \
