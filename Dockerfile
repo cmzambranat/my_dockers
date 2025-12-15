@@ -49,7 +49,7 @@ RUN install2.r --error --skipinstalled \
   googleway \
   googledrive \
   googlesheets4 \
-  && install2.r --error --skipinstalled
+  && install2.r --error --skipinstalled \
   here \
   huxtable \
   janitor \
@@ -73,7 +73,7 @@ RUN install2.r --error --skipinstalled \
   stacks \
   stopwords \
   styler \
-  && install2.r --error --skipinstalled
+  && install2.r --error --skipinstalled \
   targets \
   text \
   textclean \
@@ -95,7 +95,7 @@ RUN install2.r --error --skipinstalled \
   wordcloud \
   workflowsets \
   xgboost \
-  && install2.r --error --skipinstalled
+  && install2.r --error --skipinstalled \
   hexView \
   DT \
   DiagrammeR \
