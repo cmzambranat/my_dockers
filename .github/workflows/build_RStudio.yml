@@ -32,4 +32,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: cmzambranat/production:4.4.1
+          tags: cmzambranat/production:4.5.2
