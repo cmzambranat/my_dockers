@@ -1,4 +1,4 @@
-FROM rocker/verse:4.5.2
+FROM rocker/verse:4.6.0
 ## rocker verse tags: https://github.com/rocker-org/rocker-versioned2/wiki
 MAINTAINER "Carlos Zambrana-Torrelio" cmzambranat@gmail.com
 # Install system dependencies
@@ -124,6 +124,7 @@ RUN install2.r --error --skipinstalled \
   corporaexplorer \
   humaniformat \
   quarto \
+  ragnar \
   && installGithub.r ropensci/gutenbergr \
   && installGithub.r elipousson/officerExtras \
   && rm -rf /tmp/downloaded_packages/ /tmp/*.rds /root/tmp/downloaded_packages
