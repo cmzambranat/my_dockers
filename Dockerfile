@@ -46,8 +46,8 @@ RUN printf 'MAKEFLAGS=-j%s\n' "$(nproc)" \
 # GitHub R packages
 # ------------------------------------------------------------------------------
 
-RUN installGithub.r s-u/unixtools
-
+RUN install2.r --error remotes \
+    && installGithub.r s-u/unixtools
 
 # ------------------------------------------------------------------------------
 # CRAN packages
