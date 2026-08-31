@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM rocker/verse:4.5.2
+FROM rocker/verse:4.6.1
 
 LABEL org.opencontainers.image.authors="Carlos Zambrana-Torrelio <cmzambranat@gmail.com>"
 
