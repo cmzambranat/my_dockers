@@ -6,6 +6,7 @@ on:
       - production
     paths:
       - "Dockerfile"
+      - ".github/workflows/build_RStudio.yml"
 
 jobs:
   docker:
