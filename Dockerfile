@@ -93,6 +93,19 @@ RUN install2.r --error --skipinstalled \
 RUN mkdir -p /home/rstudio/.config/rstudio \
     && chown -R rstudio:rstudio /home/rstudio/.config
 
+# Prepare for positron
+# Prepare SSH runtime directory
+RUN mkdir -p /run/sshd \
+    && mkdir -p /home/rstudio/.ssh \
+    && chown -R rstudio:rstudio /home/rstudio/.ssh \
+    && chmod 700 /home/rstudio/.ssh
+
+# Disable password and root SSH login
+RUN printf '\nPasswordAuthentication no\nPubkeyAuthentication yes\nPermitRootLogin no\n' \
+    >> /etc/ssh/sshd_config
+
+EXPOSE 22
+
 COPY --chown=rstudio:rstudio \
     config/rstudio-prefs.json \
     /home/rstudio/.config/rstudio/rstudio-prefs.json
